@@ -1,0 +1,16 @@
+<div id="MainMenu">
+        <div class="list-group">           
+          <p class="list-group-item">Wszystkie rozgrywki </p>
+          <div id="menu1">
+            <a *ngFor="let comp of competitions" class="list-group-item" routerLink="/compdetail/{{comp.competitionId}}">{{comp.name}}</a>
+        </div>
+    </div>
+</div>
+
+<!-- <div>
+    <ul class="nav flex-column">
+        <li  class="nav-item" *ngFor="let comp of competitions">
+            <a class="nav-link" routerLink="/compdetail/{{comp.competitionId}}">{{comp.name}}</a>
+        </li>
+    </ul>
+</div> -->

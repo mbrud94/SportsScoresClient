@@ -1,0 +1,23 @@
+.list-group > div a.list-group-item {
+    font-size:12px;
+    padding-left:22px;
+    /* background-color:gray; */
+    color: black;
+}
+
+.list-group-item[data-toggle]:after {
+    font-family:'FontAwesome';
+    /* content: "\f0d7"; */
+    margin-left: 5px;
+}
+
+.list-group > .list-group-item:not(.collapsed):after {
+    font-family:'FontAwesome';
+    /* content: "\f0d8"; */
+    margin-left: 5px;
+}
+
+ .list-group-submenu .list-group-item {
+     background-color:#eee;
+     padding-left:30px;
+ }

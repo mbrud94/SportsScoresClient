@@ -1,0 +1,44 @@
+<h5>Tabela dla rozgrywek</h5>
+
+<div>
+  <div class="btn-group" role="group">
+    <a style="color: white; pointer-events: none;" role="button" class="btn btn-success btn-xs" id="label-btn"  aria-disabled="true">Rodzaj tabeli</a>
+    <button #fullTable type="button" class="btn btn-secondary" (click)="loadFullTable()">Ogólna</button>
+    <button type="button" class="btn btn-secondary" (click)="loadHomeTable()">Dom</button>
+    <button type="button" class="btn btn-secondary" (click)="loadAwayTable()">Wyjazd</button>
+  </div>
+</div>
+<br>
+<div *ngIf="!tableRows">
+    <span>Wczytywanie tabeli...</span>
+</div>
+
+<div *ngIf="tableRows">
+    <table class='table table-striped'>
+        <thead class='thead-dark'>
+            <tr>
+                <th>Pozycja</th>
+                <th>Drużyna</th>
+                <th>Punkty</th>
+                <th>Zwycięstwa</th>
+                <th>Remisy</th>
+                <th>Porażki</th>
+                <th>Gole strzelone</th>
+                <th>Gole stracone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of tableRows" [ngClass]="{ 'table-success': row.position==1, 'table-warning' : row.position>=2 && row.position<=4,
+                 'table-danger' : row.position <= tableRows.length && row.position >= tableRows.length-3}">
+                <td>{{ row.position }}.</td>
+                <td class="row"><span class="col col-sm-2"><img src={{row.crestUrl}} height="20px"/></span><span class="col col-sm-10">{{ row.teamName }}</span></td>
+                <td>{{ row.points }}</td>
+                <td>{{ row.wins }}</td>
+                <td>{{ row.draws }}</td>
+                <td>{{ row.losts }}</td>
+                <td>{{ row.goalsScored }}</td>
+                <td>{{ row.goalsLost }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
