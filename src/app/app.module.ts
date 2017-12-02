@@ -16,7 +16,9 @@ import { CompetitionService } from './services/competitions.service';
 import { TablesService } from './services/tables.service';
 import { CompetitionTableComponent } from './components/competition-table/competition-table.component';
 import { GamesService } from './services/games.service';
+import { AuthService } from './services/auth.service';
 import { GamesListComponent } from './components/games-list/games-list.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { GamesListComponent } from './components/games-list/games-list.component
     NavMenuComponent,
     CompDetailsComponent,
     CompetitionTableComponent,
-    GamesListComponent
+    GamesListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { GamesListComponent } from './components/games-list/games-list.component
     RouterModule.forRoot([
         { path: '', redirectTo: 'home', pathMatch: 'full' },
         { path: 'home', component: HomeComponent },
+        { path: 'login', component: LoginComponent },
         { path: 'compdetail/:id', component: CompDetailsComponent },
         { path: '**', redirectTo: 'home' }
     ])
@@ -44,6 +48,7 @@ import { GamesListComponent } from './components/games-list/games-list.component
     CompetitionService, 
     TablesService,
     GamesService,
+    AuthService,
     { provide: 'BASE_URL', useFactory: getBaseUrl2 }
   ],
   bootstrap: [AppComponent]
