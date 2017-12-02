@@ -15,6 +15,8 @@ import { CompDetailsComponent } from './components/compdetails/compdetails.compo
 import { CompetitionService } from './services/competitions.service';
 import { TablesService } from './services/tables.service';
 import { CompetitionTableComponent } from './components/competition-table/competition-table.component';
+import { GamesService } from './services/games.service';
+import { GamesListComponent } from './components/games-list/games-list.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +24,15 @@ import { CompetitionTableComponent } from './components/competition-table/compet
     HomeComponent,
     NavMenuComponent,
     CompDetailsComponent,
-    CompetitionTableComponent
+    CompetitionTableComponent,
+    GamesListComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     HttpModule,
     FormsModule,
-    NgbModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
         { path: '', redirectTo: 'home', pathMatch: 'full' },
         { path: 'home', component: HomeComponent },
@@ -40,6 +43,7 @@ import { CompetitionTableComponent } from './components/competition-table/compet
   providers: [
     CompetitionService, 
     TablesService,
+    GamesService,
     { provide: 'BASE_URL', useFactory: getBaseUrl2 }
   ],
   bootstrap: [AppComponent]

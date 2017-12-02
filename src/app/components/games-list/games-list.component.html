@@ -1,0 +1,23 @@
+<div *ngIf="games">
+    <ul>
+      <li *ngFor="let game of games" class="row">
+        <span class="col-sm-2">{{ game.matchDate | date : 'yyyy-MM-dd HH:mm' }}</span>
+        <span class="col-sm-4">
+          <span class="row">
+            <span class="col-sm-2"><img src={{game.homeTeamCrestUrl}} height="20px"/></span>
+            <span class="col-sm-10">{{ game.homeTeam }}</span>
+          </span>
+        </span>
+        <!-- <span class="col-sm-4">{{ game.homeTeam }}</span> -->
+        <span class="col-sm-2">{{ game.homeTeamGoals }} : {{game.awayTeamGoals}}</span>
+        <span class="col-sm-4">
+            <span class="row">            
+              <span class="col-sm-10">{{ game.awayTeam }}</span>
+              <span class="col-sm-2"><img src={{game.awayTeamCrestUrl}} height="20px"/></span>
+            </span>
+          </span>
+        <!-- <span class="col-sm-4">{{ game.awayTeam }}</span> -->
+      </li>
+    </ul>
+</div>
+

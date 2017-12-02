@@ -13,8 +13,8 @@ import { TablesService } from '../../services/tables.service';
 export class CompetitionTableComponent implements OnInit {
   id: number;
   tableRows: TableRow[];
-  @ViewChild('fullTable') fullTableBtn; 
-
+  tableMode = "general";
+ 
   constructor(private route: ActivatedRoute, private router: Router, private tablesService: TablesService) {}
 
   ngOnInit(): void {
@@ -29,7 +29,6 @@ export class CompetitionTableComponent implements OnInit {
   initialiseState(): void {
     //console.log(this.id);
     this.loadFullTable();
-    this.fullTableBtn.nativeElement.focus();
   }
 
   loadFullTable(): void {

@@ -1,3 +1,21 @@
 ﻿<h2>Szczegóły rozgrywek {{id}}</h2>
 
-<competition-table></competition-table>
+<ngb-tabset >
+    <ngb-tab title="Tabela">
+      <ng-template ngbTabContent>
+        <competition-table></competition-table>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Wyniki">
+      <ng-template ngbTabContent>
+        <games-list [gamesStatus] = "'Finished'"></games-list>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Terminarz">
+      <ng-template ngbTabContent>
+          <games-list [gamesStatus] = "'Scheduled'"></games-list>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+  
+  
