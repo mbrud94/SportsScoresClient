@@ -19,6 +19,9 @@ import { GamesService } from './services/games.service';
 import { AuthService } from './services/auth.service';
 import { GamesListComponent } from './components/games-list/games-list.component';
 import { LoginComponent } from './components/login/login.component';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import { AuthGuard } from './services/auth-guard.service';
+import { AdminService } from './services/admin.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { LoginComponent } from './components/login/login.component';
     CompDetailsComponent,
     CompetitionTableComponent,
     GamesListComponent,
-    LoginComponent
+    LoginComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,7 @@ import { LoginComponent } from './components/login/login.component';
         { path: 'home', component: HomeComponent },
         { path: 'login', component: LoginComponent },
         { path: 'compdetail/:id', component: CompDetailsComponent },
+        { path: 'admin', component: AdminPanelComponent, canActivate: [AuthGuard] },
         { path: '**', redirectTo: 'home' }
     ])
   ],
@@ -49,6 +54,8 @@ import { LoginComponent } from './components/login/login.component';
     TablesService,
     GamesService,
     AuthService,
+    AdminService,
+    AuthGuard,
     { provide: 'BASE_URL', useFactory: getBaseUrl2 }
   ],
   bootstrap: [AppComponent]

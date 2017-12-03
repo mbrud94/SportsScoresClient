@@ -1,0 +1,19 @@
+<h2>Admin panel</h2>
+<hr>
+
+<div class="col-sm-6">
+  <h4>Aktualizacja rozgrywek</h4>
+  <form name="form" (ngSubmit)="f.form.valid && updateCompetition()" #f="ngForm" novalidate>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
+          <label for="competition">Rozgyrwki</label>
+          <select class="form-control" [(ngModel)]="model.selectedComp" name="selectedComp">
+            <option *ngFor="let comp of competitions" value="{{comp.competitionId}}">{{comp.name}}</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <button class="btn btn-primary">Aktualizuj</button>
+      </div>
+  </form>
+</div>
+
+<hr>

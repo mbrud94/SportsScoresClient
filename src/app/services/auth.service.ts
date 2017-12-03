@@ -31,6 +31,7 @@ export class AuthService{
     }
 
     isAuthenticated(): boolean{
+        console.log("auth check");
         return localStorage.getItem("admin") ? true : false;
     }
 }
