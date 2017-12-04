@@ -1,4 +1,4 @@
-<h5>Tabela dla rozgrywek</h5>
+<br>
 <div class="btn-group" ngbRadioGroup [(ngModel)]="tableMode">
     <label ngbButtonLabel class="btn-outline-primary btn-sm">
         <input ngbButton type="radio" value="general" (click)="loadFullTable()">Ogólna
@@ -21,25 +21,27 @@
             <tr>
                 <th>Pozycja</th>
                 <th>Drużyna</th>
-                <th>Punkty</th>
+                <th>Mecze</th>
                 <th>Zwycięstwa</th>
                 <th>Remisy</th>
                 <th>Porażki</th>
                 <th>Gole strzelone</th>
                 <th>Gole stracone</th>
+                <th>Punkty</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let row of tableRows" [ngClass]="{ 'table-success': row.position==1, 'table-warning' : row.position>=2 && row.position<=4,
                  'table-danger' : row.position <= tableRows.length && row.position >= tableRows.length-3}">
                 <td>{{ row.position }}.</td>
-                <td class="row"><span class="col col-sm-2"><img src={{row.crestUrl}} height="20px"/></span><span class="col col-sm-10">{{ row.teamName }}</span></td>
-                <td>{{ row.points }}</td>
+                <td class="row" style="text-align: left;"><span class="col col-sm-2"><img src={{row.crestUrl}} height="20px"/></span><span class="col col-sm-10">{{ row.teamName }}</span></td>
+                <td>{{ row.wins + row.draws + row.losts }}</td>
                 <td>{{ row.wins }}</td>
                 <td>{{ row.draws }}</td>
                 <td>{{ row.losts }}</td>
                 <td>{{ row.goalsScored }}</td>
                 <td>{{ row.goalsLost }}</td>
+                <td>{{ row.points }}</td>
             </tr>
         </tbody>
     </table>

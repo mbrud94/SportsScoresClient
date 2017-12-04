@@ -1,11 +1,14 @@
-<h2>Admin panel</h2>
+<div class="row">
+    <h2 class="col-sm-10">Panel administratora</h2>
+    <div class="col-sm-2"><button class="btn btn-danger" (click)="adminService.logout()">Wyloguj</button></div>
+</div>
 <hr>
 
-<div class="col-sm-6">
-  <h4>Aktualizacja rozgrywek</h4>
+<div class="col-sm-8">
+  <h4>Aktualizacja wyników rozgrywek z zewnętrznego API</h4>
   <form name="form" (ngSubmit)="f.form.valid && updateCompetition()" #f="ngForm" novalidate>
       <div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
-          <label for="competition">Rozgyrwki</label>
+          <label for="selectedComp">Rozgyrwki</label>
           <select class="form-control" [(ngModel)]="model.selectedComp" name="selectedComp">
             <option *ngFor="let comp of competitions" value="{{comp.competitionId}}">{{comp.name}}</option>
           </select>
@@ -14,6 +17,14 @@
           <button class="btn btn-primary">Aktualizuj</button>
       </div>
   </form>
+</div>
+
+<div *ngIf="updateMessage" class="alert alert-success col-sm-6">
+    Aktualizacja zakończona pomyślnie. {{updateMessage}}
+</div>
+
+<div *ngIf="inProgress" class="alert alert-info col-sm-6">
+    Aktualizacja w toku...
 </div>
 
 <hr>
